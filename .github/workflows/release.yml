@@ -1,0 +1,32 @@
+name: Release Plugin
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: corepack enable
+      - run: npm install
+      - name: Build bundle
+        run: node build.mjs
+      - name: Build main-process bundle
+        run: node build-main.mjs
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/voiden-mock-server.js
+            dist/changelog.json
+            dist/voiden-mock-server-main.cjs
+            manifest.json

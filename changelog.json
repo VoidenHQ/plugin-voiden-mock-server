@@ -1,0 +1,18 @@
+[
+  {
+    "version": "v0.1.0",
+    "date": "20/11/2026",
+    "title": "Initial Release",
+    "description": "Run a local mock HTTP server from inside Voiden.",
+    "changes": {
+      "Added": [
+        "Mock Server tab in the left sidebar to start and stop a local mock server.",
+        "Routes with a method, path, status, response headers, body and optional delay, saved in voiden-mocks.json at the project root.",
+        "Path patterns with :params and * wildcards.",
+        "Route edits apply while the server runs, including hand edits to voiden-mocks.json.",
+        "CORS headers and preflight handling for browser apps, and an optional LAN mode.",
+        "Request log showing headers, body, matched route and timing, with a button to add a route for an unmatched request."
+      ]
+    }
+  }
+]
